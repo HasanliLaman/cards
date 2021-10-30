@@ -2,11 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
 
 :root {
-  --color-primary: #33415e;
-  --color-secondary: #009f92;
-  --color-accent: #fe9e84;
-  --color-light: #f7e7be;
-  --color-dark: #00777b;
+  --color-primary: #8e9aaf;
+  --color-secondary: #cbc0d3;
+  --color-accent: #bcc4d6;
+  --color-light: #fbf3ee;
+  --color-dark: #555d6b;
   --border-radius: 5px;
 }
 
@@ -36,18 +36,18 @@ body {
   letter-spacing: 1.3px;
   padding: 1rem 1.7rem;
   text-align: center;
-  transition: all 0.5s;
+  transition: all 0.8s;
   white-space: nowrap;
 }
 
 .btn--accent {
   background: var(--color-accent);
-  color: var(--color-light);
+  color: var(--color-dark);
 }
 
 .btn--accent:hover,
 .btn--accent:active {
-  background: var(--color-light);
+  background: var(--color-dark);
   color: var(--color-accent);
 }
 
@@ -82,8 +82,8 @@ body {
 .icon--cover {
   width: 85px;
   height: 85px;
-  filter: invert(26%) sepia(78%) saturate(1893%) hue-rotate(159deg)
-    brightness(90%) contrast(101%);
+  filter: invert(35%) sepia(9%) saturate(829%) hue-rotate(179deg)
+    brightness(95%) contrast(87%);
 }
 
 .icon--avatar {
@@ -142,8 +142,8 @@ body {
 
 .number--accent {
   background: var(--color-accent);
-  border: 3px solid var(--color-light);
-  color: var(--color-light);
+  /* border: 3px solid var(--color-light); */
+  color: var(--color-dark);
 }
 
 /* Card blocks */
@@ -192,7 +192,7 @@ body {
 
 /* Modal block */
 .modal {
-  background: #fff;
+  background: var(--color-light);
   border-radius: var(--border-radius);
   color: var(--color-dark);
   font-size: 1.1rem;
@@ -290,7 +290,7 @@ body {
 
 .number__container {
   align-items: center;
-  color: var(--color-light);
+  color: var(--color-dark);
   display: inline-flex;
   flex-direction: column;
   font-size: 1.7rem;
