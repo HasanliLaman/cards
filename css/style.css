@@ -143,14 +143,38 @@ body {
 .number {
   border-radius: var(--border-radius);
   display: inline-block;
-  font-size: 2.4rem;
-  padding: 1.2rem;
+  font-size: 2.3rem;
+  padding: 1.3rem;
 }
 
 .number--accent {
   background: var(--color-accent);
   /* border: 3px solid var(--color-light); */
   color: var(--color-dark);
+}
+
+.number__container p {
+  margin-top: 0.5rem;
+  margin-bottom: -0.5rem;
+}
+
+.number__container {
+  align-items: center;
+  color: var(--color-dark);
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 1.9rem;
+}
+
+@media screen and (min-width: 1100px) {
+  .number {
+    font-size: 2.3rem;
+    padding: 1.2rem;
+  }
+
+  .number__container {
+    font-size: 1.8rem;
+  }
 }
 
 /* Card blocks */
@@ -297,19 +321,6 @@ body {
   justify-content: space-around;
 }
 
-.number__container p {
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-}
-
-.number__container {
-  align-items: center;
-  color: var(--color-dark);
-  display: inline-flex;
-  flex-direction: column;
-  font-size: 1.7rem;
-}
-
 @media screen and (min-width: 768px) {
   .app {
     max-width: 600px;
@@ -320,6 +331,23 @@ body {
 
 @media screen and (min-width: 1100px) {
   .app {
-    max-width: 1050px;
+    max-width: 1060px;
   }
+}
+
+/* Credits */
+.credits {
+  color: var(--color-dark);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.credits a {
+  transition: 0.8s;
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+.credits a:hover {
+  color: var(--color-accent);
 }
