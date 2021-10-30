@@ -91,6 +91,13 @@ body {
   height: 135px;
 }
 
+@media screen and (min-width: 1100px) {
+  .icon--avatar {
+    width: 115px;
+    height: 115px;
+  }
+}
+
 /* Grid */
 .grid {
   display: grid;
@@ -105,20 +112,20 @@ body {
 @media screen and (min-width: 350px) {
   .grid--3x4 {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(8, 1fr);
   }
 }
 
 @media screen and (min-width: 768px) {
   .grid--3x4 {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
   .grid--3x4 {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(2, 1fr);
   }
 }
@@ -188,6 +195,13 @@ body {
   border: 3.5px solid var(--color-secondary);
   background: var(--color-light);
   transform: rotateY(-180deg);
+}
+
+@media screen and (min-width: 1100px) {
+  .card__container {
+    width: 110px;
+    height: 160px;
+  }
 }
 
 /* Modal block */
@@ -304,10 +318,8 @@ body {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
   .app {
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 1050px;
   }
 }
