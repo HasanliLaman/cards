@@ -233,11 +233,11 @@ body {
   background: var(--color-light);
   border-radius: var(--border-radius);
   color: var(--color-dark);
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   left: 50%;
   max-width: 300px;
   padding: 2.5rem;
-  position: absolute;
+  position: fixed;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
@@ -266,7 +266,7 @@ body {
 
 @media screen and (min-width: 768px) {
   .modal {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     padding: 3rem;
     max-width: 450px;
   }

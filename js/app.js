@@ -73,6 +73,44 @@ const mathchingHandler = function () {
   });
 };
 
+const blockInfo = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+
+const openInfo = function () {
+  blockInfo.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+
+const closeInfo = function () {
+  blockInfo.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+
+const modalHandler = function () {
+  const btnInfo = document.querySelector(".btn--info");
+  const overlay = document.querySelector(".overlay");
+  const btnCloseInfo = document.querySelector(".btn--info-close");
+
+  btnInfo.addEventListener("click", openInfo);
+  btnCloseInfo.addEventListener("click", closeInfo);
+  overlay.addEventListener("click", closeInfo);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !blockInfo.classList.contains("hidden")) {
+      closeInfo();
+    }
+  });
+};
+
+// const resetHandler = function () {
+//   const btnReset = document.querySelector(".btn--reset");
+
+//   btnReset.addEventListener("click", function () {
+//     enableCards();
+//   });
+// };
+
 renderCards();
 mathchingHandler();
 flipCards();
+modalHandler();
