@@ -33,7 +33,7 @@ const renderCards = function () {
           </div>`;
   }
 
-  cardContainer.insertAdjacentHTML("afterbegin", html);
+  cardContainer.insertAdjacentHTML("beforeend", html);
 };
 
 const disableCards = function () {
@@ -43,6 +43,7 @@ const disableCards = function () {
 
 const enableCards = function () {
   const cards = document.querySelectorAll(".card");
+
   cards.forEach((el) => {
     el.style.pointerEvents = "auto";
     el.classList.remove("card--flipped");
@@ -136,17 +137,19 @@ const resetHandler = function () {
   const btnReset = document.querySelector(".btn--reset");
 
   btnReset.addEventListener("click", function () {
-    renderCards();
     document.querySelector(".timer").textContent = `100`;
     document.querySelector(".moves").textContent = `0`;
     document.querySelector(".message--fail").classList.add("hidden");
     document.querySelector(".message--success").classList.add("hidden");
+
+    renderCards();
+    flipCards();
   });
 };
 
 renderCards();
-mathchingHandler();
 flipCards();
+mathchingHandler();
 modalHandler();
 timer();
 resetHandler();
