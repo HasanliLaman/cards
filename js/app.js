@@ -1,5 +1,6 @@
 "use strict";
 
+// Flips cards when clicked
 const flipCards = function () {
   const cards = document.querySelectorAll(".card");
 
@@ -10,6 +11,7 @@ const flipCards = function () {
   );
 };
 
+// Add cards in random places everytime
 const renderCards = function () {
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
   const shuffledNumbers = numbers.sort((a, b) => 0.5 - Math.random());
@@ -36,11 +38,13 @@ const renderCards = function () {
   cardContainer.insertAdjacentHTML("beforeend", html);
 };
 
+// Disable cards when one is open
 const disableCards = function () {
   const cards = document.querySelectorAll(".card");
   cards.forEach((el) => (el.style.pointerEvents = "none"));
 };
 
+// Enables cards if there are disabled ones
 const enableCards = function () {
   const cards = document.querySelectorAll(".card");
 
@@ -50,12 +54,14 @@ const enableCards = function () {
   });
 };
 
+// Check whether two cards are same or not
 const isMatching = function (el1, el2) {
   if (el1.dataset.number === el2.dataset.number) {
-    [el1, el2].forEach((el) => el.classList.add("card--flipped"));
+    [el1, el2].forEach((el) => el.classList.add("card--flipped")); //if same keep cards open
     return;
   }
   setTimeout(function () {
+    // if not flip back
     [el1, el2].forEach((el) => {
       el.classList.remove("card--flipped");
       el.style.pointerEvents = "auto";
@@ -63,6 +69,7 @@ const isMatching = function (el1, el2) {
   }, 1200);
 };
 
+// Uses isMatching when two cards are flipped
 const mathchingHandler = function () {
   const cardContainer = document.querySelector(".cards");
   let chosen = [];
@@ -74,12 +81,13 @@ const mathchingHandler = function () {
     chosen.forEach((el) => (el.style.pointerEvents = "none"));
     if (chosen.length === 2) {
       isMatching(chosen[0], chosen[1]);
-      moves.textContent = `${Number(moves.textContent) + 1}`;
+      moves.textContent = `${Number(moves.textContent) + 1}`; // everytime 2 cards chosen the number of moves increases
       chosen = [];
     }
   });
 };
 
+// Info button and info block handler
 const blockInfo = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 
@@ -109,6 +117,7 @@ const modalHandler = function () {
   });
 };
 
+// Sets timer for 100 seconds
 const timer = function () {
   const time = document.querySelector(".timer");
   const failMessage = document.querySelector(".message--fail");
@@ -120,12 +129,14 @@ const timer = function () {
     time.textContent = `${Number(time.textContent) - 1}`;
 
     if (Number(time.textContent) === 0) {
+      //if timer hits 0 game is over
       clearInterval(setTimer);
       failMessage.classList.remove("hidden");
       disableCards();
     }
 
     if (flippedCards.length === 16) {
+      //if player wins timer stops
       disableCards();
       clearInterval(setTimer);
       successMessage.classList.remove("hidden");
@@ -133,6 +144,7 @@ const timer = function () {
   }, 1000);
 };
 
+// When reset button is clicked, return everything back to original state
 const resetHandler = function () {
   const btnReset = document.querySelector(".btn--reset");
 
@@ -144,12 +156,18 @@ const resetHandler = function () {
 
     renderCards();
     flipCards();
+    timer();
   });
 };
 
-renderCards();
-flipCards();
-mathchingHandler();
-modalHandler();
-timer();
-resetHandler();
+// Call all functions
+const init = function () {
+  renderCards();
+  flipCards();
+  mathchingHandler();
+  modalHandler();
+  timer();
+  resetHandler();
+};
+
+init();
