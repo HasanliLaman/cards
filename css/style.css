@@ -191,6 +191,7 @@ body {
   position: relative;
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
   transition: transform 1s;
   width: 100%;
 }
@@ -203,6 +204,8 @@ body {
 .card__front,
 .card__back {
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   border-radius: var(--border-radius);
   display: flex;
   height: 100%;

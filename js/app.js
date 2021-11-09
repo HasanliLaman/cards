@@ -24,9 +24,7 @@ const renderCards = function () {
     html += `<div class="card__container">
             <div class="card" data-number="${shuffledNumbers[i]}">
               <div class="card__front">
-                <svg class="icon--cover">
-                  <use href="images/sprite.svg#cover"></use>
-                </svg>
+                <img class="icon--cover" src="images/card.svg" alt="" />
               </div>
               <div class="card__back">
                 <img class="icon--avatar" src="images/avatar${shuffledNumbers[i]}.svg" alt="" />
