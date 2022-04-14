@@ -122,7 +122,7 @@ const timer = function () {
   const successMessage = document.querySelector(".message--success");
   const flippedCards = document.querySelectorAll(".card--flipped");
 
-  var setTimer = setInterval(function () {
+  const setTimer = setInterval(function () {
     const flippedCards = document.querySelectorAll(".card--flipped");
     time.textContent = `${Number(time.textContent) - 1}`;
 
@@ -140,9 +140,14 @@ const timer = function () {
       successMessage.classList.remove("hidden");
     }
   }, 1000);
+
+  const btnReset = document.querySelector(".btn--reset");
+  btnReset.addEventListener("click", function () {
+    clearInterval(setTimer);
+  });
 };
 
-// When reset button is clicked, return everything back to original state
+// When reset button is clicked, return everything back to its original state
 const resetHandler = function () {
   const btnReset = document.querySelector(".btn--reset");
 
@@ -164,8 +169,8 @@ const init = function () {
   flipCards();
   mathchingHandler();
   modalHandler();
-  timer();
   resetHandler();
+  timer();
 };
 
 init();
